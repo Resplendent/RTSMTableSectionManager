@@ -9,14 +9,14 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.0.7):
     - FBSnapshotTestCase/Core
   - ResplendentUtilities (0.4)
-  - RTSMTableSectionManager (0.1.0)
+  - RTSMTableSectionManager (0.1.1):
+    - ResplendentUtilities (~> 0.4)
   - Specta (1.0.5)
 
 DEPENDENCIES:
   - Expecta
   - Expecta+Snapshots
   - FBSnapshotTestCase
-  - ResplendentUtilities (= 0.4)
   - RTSMTableSectionManager (from `../`)
   - Specta
 
@@ -29,7 +29,7 @@ SPEC CHECKSUMS:
   Expecta+Snapshots: 29b38dd695bc72a0ed2bea833937d78df41943ba
   FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
   ResplendentUtilities: 0c174f43ad80302388f1fe4715f90c94d77f6ba8
-  RTSMTableSectionManager: 725c79d0ac1994e53655324157216202f683f9cf
+  RTSMTableSectionManager: f671b07881ebcd904bd70e64da12b3e6db7114d0
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
 
 COCOAPODS: 0.39.0
