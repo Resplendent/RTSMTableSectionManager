@@ -8,22 +8,25 @@
 
 #import "RTSMViewController.h"
 
+
+
+
+
 @interface RTSMViewController ()
 
 @end
+
+
+
+
 
 @implementation RTSMViewController
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
+	[super viewDidLoad];
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	
 }
 
 @end

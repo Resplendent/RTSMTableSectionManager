@@ -3,6 +3,7 @@ use_frameworks!
 
 target 'RTSMTableSectionManager_Example', :exclusive => true do
   pod 'RTSMTableSectionManager', :path => '../'
+  pod 'ResplendentUtilities', '0.3.2'
 end
 
 target 'RTSMTableSectionManager_Tests', :exclusive => true do

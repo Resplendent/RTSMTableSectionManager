@@ -7,13 +7,25 @@
 //
 
 #import "RTSMAppDelegate.h"
+#import "RTSMViewController.m"
+
+
+
+
 
 @implementation RTSMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+	[self setWindow:[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]];
+	[self.window setBackgroundColor:[UIColor greenColor]];
+
+	RTSMViewController* viewController = [RTSMViewController new];
+	[self.window setRootViewController:viewController];
+	
+	[self.window makeKeyAndVisible];
+
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
