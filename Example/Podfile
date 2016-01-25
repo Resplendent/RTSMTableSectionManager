@@ -1,16 +1,21 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
+
+def import_pods
+	pod 'RTSMTableSectionManager', :path => '../'
+end
+
+
 target 'RTSMTableSectionManager_Example', :exclusive => true do
-  pod 'RTSMTableSectionManager', :path => '../'
-  pod 'ResplendentUtilities', '0.4'
+	import_pods
 end
 
 target 'RTSMTableSectionManager_Tests', :exclusive => true do
-  pod 'RTSMTableSectionManager', :path => '../'
-
-  pod 'Specta'
-  pod 'Expecta'
-  pod 'FBSnapshotTestCase'
-  pod 'Expecta+Snapshots'
+	import_pods
+	
+	pod 'Specta'
+	pod 'Expecta'
+	pod 'FBSnapshotTestCase'
+	pod 'Expecta+Snapshots'
 end
