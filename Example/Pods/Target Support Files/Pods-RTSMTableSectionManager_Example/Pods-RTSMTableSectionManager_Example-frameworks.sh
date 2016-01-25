@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-RTSMTableSectionManager_Example/RTSMTableSectionManager.framework"
+  install_framework "Pods-RTSMTableSectionManager_Example/ResplendentUtilities.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-RTSMTableSectionManager_Example/RTSMTableSectionManager.framework"
+  install_framework "Pods-RTSMTableSectionManager_Example/ResplendentUtilities.framework"
 fi

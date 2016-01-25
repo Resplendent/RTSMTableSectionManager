@@ -7,13 +7,28 @@
 //
 
 #import "RTSMAppDelegate.h"
+#import "RTSMViewController.h"
+
+
+
+
 
 @implementation RTSMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+	[self setWindow:[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]];
+	[self.window setBackgroundColor:[UIColor greenColor]];
+
+	RTSMViewController* viewController = [RTSMViewController new];
+	[viewController setTitle:@"Table Section Manager"];
+	UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
+
+	[self.window setRootViewController:navigationController];
+	
+	[self.window makeKeyAndVisible];
+
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
