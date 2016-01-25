@@ -12,8 +12,6 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* RTSMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* RTSMAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* RTSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* RTSMViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -22,6 +20,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		63569C1F3DC2412EB9BEAE61 /* Pods_RTSMTableSectionManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF93BB757B353483F444C2C3 /* Pods_RTSMTableSectionManager_Example.framework */; };
 		7E310719AADF57EA89959B2D /* Pods_RTSMTableSectionManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7557197F7FAE9870C79C460A /* Pods_RTSMTableSectionManager_Tests.framework */; };
+		D7A8C89E1C56DAE1007480B9 /* RTSMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8C89B1C56DAE1007480B9 /* RTSMAppDelegate.m */; };
+		D7A8C8A21C56DB0E007480B9 /* RTSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8C8A11C56DB0E007480B9 /* RTSMViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +46,6 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* RTSMTableSectionManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RTSMTableSectionManager-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* RTSMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTSMAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* RTSMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTSMAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* RTSMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTSMViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* RTSMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTSMViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* RTSMTableSectionManager_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTSMTableSectionManager_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -63,6 +59,10 @@
 		7C9ED8329E0EE786DA4353D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A4CF87B584FB593BD45D00DF /* RTSMTableSectionManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RTSMTableSectionManager.podspec; path = ../RTSMTableSectionManager.podspec; sourceTree = "<group>"; };
 		BF93BB757B353483F444C2C3 /* Pods_RTSMTableSectionManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTSMTableSectionManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A8C89A1C56DAE1007480B9 /* RTSMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSMAppDelegate.h; sourceTree = "<group>"; };
+		D7A8C89B1C56DAE1007480B9 /* RTSMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSMAppDelegate.m; sourceTree = "<group>"; };
+		D7A8C8A01C56DB0E007480B9 /* RTSMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSMViewController.h; sourceTree = "<group>"; };
+		D7A8C8A11C56DB0E007480B9 /* RTSMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSMViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,11 +139,11 @@
 		6003F593195388D20070C39A /* Example for RTSMTableSectionManager */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* RTSMAppDelegate.h */,
-				6003F59D195388D20070C39A /* RTSMAppDelegate.m */,
-				6003F5A5195388D20070C39A /* RTSMViewController.h */,
-				6003F5A6195388D20070C39A /* RTSMViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
+				D7A8C89A1C56DAE1007480B9 /* RTSMAppDelegate.h */,
+				D7A8C89B1C56DAE1007480B9 /* RTSMAppDelegate.m */,
+				D7A8C8A01C56DB0E007480B9 /* RTSMViewController.h */,
+				D7A8C8A11C56DB0E007480B9 /* RTSMViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for RTSMTableSectionManager";
@@ -386,8 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F59E195388D20070C39A /* RTSMAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* RTSMViewController.m in Sources */,
+				D7A8C89E1C56DAE1007480B9 /* RTSMAppDelegate.m in Sources */,
+				D7A8C8A21C56DB0E007480B9 /* RTSMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

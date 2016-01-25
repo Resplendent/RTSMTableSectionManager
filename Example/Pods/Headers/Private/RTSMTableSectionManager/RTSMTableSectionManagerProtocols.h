@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/RTSMTableSectionManager/TableSectionManager/RTSMTableSectionManagerProtocols.h

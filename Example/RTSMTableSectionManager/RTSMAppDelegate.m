@@ -7,7 +7,7 @@
 //
 
 #import "RTSMAppDelegate.h"
-#import "RTSMViewController.m"
+#import "RTSMViewController.h"
 
 
 
@@ -21,7 +21,10 @@
 	[self.window setBackgroundColor:[UIColor greenColor]];
 
 	RTSMViewController* viewController = [RTSMViewController new];
-	[self.window setRootViewController:viewController];
+	[viewController setTitle:@"Table Section Manager"];
+	UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
+
+	[self.window setRootViewController:navigationController];
 	
 	[self.window makeKeyAndVisible];
 
