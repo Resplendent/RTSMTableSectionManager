@@ -9,21 +9,21 @@
 Pod::Spec.new do |s|
   s.name             = "RTSMTableSectionManager"
   s.version          = "0.1.0"
-  s.summary          = "A short description of RTSMTableSectionManager."
+  s.summary          = "A tool to help manage a relationship between enum types and UITableView sections."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
+  # s.description      = <<-DESC
+  #                      DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/RTSMTableSectionManager"
+  s.homepage         = "https://github.com/Resplendent/RTSMTableSectionManager"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Benjamin Maer" => "ben@resplendent.co" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/RTSMTableSectionManager.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/Resplendent/RTSMTableSectionManager.git", :tag => "v#{s.version}" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
@@ -36,5 +36,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'ResplendentUtilities', '~> 0.4'
 end
