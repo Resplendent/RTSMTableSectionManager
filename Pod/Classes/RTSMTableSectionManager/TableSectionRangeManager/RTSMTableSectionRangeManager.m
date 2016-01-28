@@ -41,14 +41,14 @@
 #pragma mark - Index Path Section Range
 -(NSUInteger)indexPathSectionLengthForSection:(NSInteger)section
 {
-	kRUConditionalReturn_ReturnValue([self tableSectionManager_sectionIsAvailable:section], YES, 0);
+	kRUConditionalReturn_ReturnValue([self tableSectionManager_sectionIsAvailable:section] == false, YES, 0);
 
 	return [self sectionLengthDelegate_tableSectionRangeManager:self lengthOfSection:section];
 }
 
 -(NSUInteger)indexPathSectionForSection:(NSInteger)section
 {
-	kRUConditionalReturn_ReturnValue([self tableSectionManager_sectionIsAvailable:section], YES, NSNotFound);
+	kRUConditionalReturn_ReturnValue([self tableSectionManager_sectionIsAvailable:section] == false, YES, NSNotFound);
 	
 	NSUInteger sectionCount = 0;
 	for (NSInteger section_loop = self.tableSectionManager.firstSection;
