@@ -17,7 +17,6 @@
 @interface RTSMTableSectionManager ()
 
 -(BOOL)firstAndLastSectionsAreAppropriate;
--(BOOL)sectionDelegate_sectionIsAvailable:(NSInteger)section;
 
 @end
 
@@ -108,7 +107,7 @@
 	return section - sectionsSkipped - firstSection;
 }
 
-#pragma mark - section delegate
+#pragma mark - sectionDelegate
 -(BOOL)sectionDelegate_sectionIsAvailable:(NSInteger)section
 {
 	return [self.sectionDelegate tableSectionManager:self sectionIsAvailable:section];
@@ -124,6 +123,25 @@
 {
 	return ((section >= self.firstSection) &&
 			(section <= self.lastSection));
+}
+
+#pragma mark - firstAvailableSection
+-(NSInteger)firstAvailableSection
+{
+	NSInteger returnValue_error = NSNotFound;
+	kRUConditionalReturn_ReturnValue(self.firstAndLastSectionsAreAppropriate == false, YES, returnValue_error);
+	
+	for (NSInteger sectionLoop = self.firstSection;
+		 sectionLoop <= self.lastSection;
+		 sectionLoop++)
+	{
+		if ([self sectionDelegate_sectionIsAvailable:sectionLoop])
+		{
+			return sectionLoop;
+		}
+	}
+
+	return returnValue_error;
 }
 
 @end
