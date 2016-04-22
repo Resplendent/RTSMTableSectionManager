@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9EB2951AF255E1837C72CE46'
+               BlueprintIdentifier = '7685296DE2B9671750A18F35'
                BlueprintName = 'RTSMTableSectionManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'RTSMTableSectionManager.framework'>
