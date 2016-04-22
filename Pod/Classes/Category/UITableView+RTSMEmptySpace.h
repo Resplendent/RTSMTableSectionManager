@@ -22,33 +22,33 @@
 @interface UITableView (RTSMEmptySpace)
 
 /**
- A method that determines the amount of height between `fromSection` and `toSection`, inclusively.
+ A method that determines the amount of height from `fromSection` (inclusive) to `toSection` (inclusive).
  
  @param fromSection					The section to start determining the height from, inclusive.
- @param toSection					The section to stop determining the height from, inclusive.
+ @param toSection					The section to stop determining the height from, exclusive.
  @param tableSectionRangeManager	A table section range manager, used for converting sections to index path sections.
  @param tableFrame					The frame for table. Needed to determine proper the max height.
 
  @return The total amount of empty space remaining on the table view from between `fromSection` and `toSection`.
  */
--(CGFloat)sm_emptySpaceFromSection:(NSInteger)fromSection
-						 toSection:(NSInteger)toSection
-		  tableSectionRangeManager:(nonnull RTSMTableSectionRangeManager*)tableSectionRangeManager
-						tableFrame:(CGRect)tableFrame;
+-(CGFloat)rtsm_emptySpaceFromSection:(NSInteger)fromSection
+						   toSection:(NSInteger)toSection
+			tableSectionRangeManager:(nonnull RTSMTableSectionRangeManager*)tableSectionRangeManager
+						  tableFrame:(CGRect)tableFrame;
 
 /**
- A method that determines the amount of height between `fromSection` and `toSection`, inclusively.
+ A method that determines the amount of height from `fromSection` (inclusive) to `toSection` (inclusive).
  
  @param fromSection					The section to start determining the height from, inclusive.
- @param toSection					The section to stop determining the height from, inclusive.
+ @param toSection					The section to stop determining the height from, exclusive.
  @param tableSectionManager			A table section manager, used for converting sections to index path sections.
  @param tableFrame					The frame for table. Needed to determine proper the max height.
  
  @return The total amount of empty space remaining on the table view from between `fromSection` and `toSection`.
  */
--(CGFloat)sm_emptySpaceFromSection:(NSInteger)fromSection
-						 toSection:(NSInteger)toSection
-			   tableSectionManager:(nonnull RTSMTableSectionManager*)tableSectionManager
-						tableFrame:(CGRect)tableFrame;
+-(CGFloat)rtsm_emptySpaceFromSection:(NSInteger)fromSection
+						   toSection:(NSInteger)toSection
+				 tableSectionManager:(nonnull RTSMTableSectionManager*)tableSectionManager
+						  tableFrame:(CGRect)tableFrame;
 
 @end

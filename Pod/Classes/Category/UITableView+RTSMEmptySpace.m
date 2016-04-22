@@ -19,10 +19,10 @@
 
 @implementation UITableView (RTSMEmptySpace)
 
--(CGFloat)sm_emptySpaceFromSection:(NSInteger)fromSection
-						 toSection:(NSInteger)toSection
-		  tableSectionRangeManager:(nonnull RTSMTableSectionRangeManager*)tableSectionRangeManager
-						tableFrame:(CGRect)tableFrame
+-(CGFloat)rtsm_emptySpaceFromSection:(NSInteger)fromSection
+						   toSection:(NSInteger)toSection
+			tableSectionRangeManager:(nonnull RTSMTableSectionRangeManager*)tableSectionRangeManager
+						  tableFrame:(CGRect)tableFrame
 {
 	kRUConditionalReturn_ReturnValue((fromSection < tableSectionRangeManager.tableSectionManager.firstSection) ||
 									 (fromSection > tableSectionRangeManager.tableSectionManager.lastSection) ||
@@ -38,6 +38,11 @@
 		 section_loop < toSection;
 		 section_loop++)
 	{
+		if ([tableSectionRangeManager tableSectionManager_sectionIsAvailable:section_loop] == false)
+		{
+			continue;
+		}
+
 		NSUInteger tableViewSectionLengthForType = [tableSectionRangeManager indexPathSectionLengthForSection:section_loop];
 		NSUInteger numberOfSectionsTotal_new = numberOfSectionsTotal + tableViewSectionLengthForType;
 		
@@ -81,10 +86,11 @@
 	return heightMax - heightTotal;
 }
 
--(CGFloat)sm_emptySpaceFromSection:(NSInteger)fromSection
-						 toSection:(NSInteger)toSection
-			   tableSectionManager:(nonnull RTSMTableSectionManager*)tableSectionManager
-						tableFrame:(CGRect)tableFrame
+#pragma mark - Empty Space with Table Section Manager
+-(CGFloat)rtsm_emptySpaceFromSection:(NSInteger)fromSection
+						   toSection:(NSInteger)toSection
+				 tableSectionManager:(nonnull RTSMTableSectionManager*)tableSectionManager
+						  tableFrame:(CGRect)tableFrame
 {
 	kRUConditionalReturn_ReturnValue((fromSection < tableSectionManager.firstSection) ||
 									 (fromSection > tableSectionManager.lastSection) ||
@@ -99,6 +105,11 @@
 		 section_loop < toSection;
 		 section_loop++)
 	{
+		if ([tableSectionManager sectionDelegate_sectionIsAvailable:section_loop] == false)
+		{
+			continue;
+		}
+
 		NSUInteger indexPathSection = [tableSectionManager indexPathSectionForSection:section_loop];
 		
 		CGFloat height_section = 0.0f;
