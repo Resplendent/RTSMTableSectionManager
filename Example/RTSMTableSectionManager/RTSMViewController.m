@@ -8,7 +8,9 @@
 
 #import "RTSMViewController.h"
 
-#import "RTSMTableSectionManager.h"
+#import <RTSMTableSectionManager/RTSMTableSectionManager.h>
+#import <RTSMTableSectionManager/UITableView+RTSMEmptySpace.h>
+
 #import "NSString+RUMacros.h"
 #import "RUConditionalReturn.h"
 
@@ -22,9 +24,10 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 	RTSMViewController_tableView_section_blue,
 	RTSMViewController_tableView_section_toggle,
 	RTSMViewController_tableView_section_possiblyToggled,
+	RTSMViewController_tableView_section_alwaysBottom,
 
 	RTSMViewController_tableView_section__first		= RTSMViewController_tableView_section_red,
-	RTSMViewController_tableView_section__last		= RTSMViewController_tableView_section_possiblyToggled,
+	RTSMViewController_tableView_section__last		= RTSMViewController_tableView_section_alwaysBottom,
 };
 
 
@@ -87,13 +90,13 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 #pragma mark - RTSMTableSectionManager_SectionDelegate
 -(BOOL)tableSectionManager:(RTSMTableSectionManager *)tableSectionManager sectionIsAvailable:(NSInteger)section
 {
-	RTSMViewController_tableView_section tableView_section = (RTSMViewController_tableView_section)section;
-	switch (tableView_section)
+	switch ((RTSMViewController_tableView_section)section)
 	{
 		case RTSMViewController_tableView_section_red:
 		case RTSMViewController_tableView_section_green:
 		case RTSMViewController_tableView_section_blue:
 		case RTSMViewController_tableView_section_toggle:
+		case RTSMViewController_tableView_section_alwaysBottom:
 			return YES;
 			break;
 			
@@ -150,15 +153,54 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 		case RTSMViewController_tableView_section_red:
 		case RTSMViewController_tableView_section_green:
 		case RTSMViewController_tableView_section_blue:
+		case RTSMViewController_tableView_section_possiblyToggled:
+		case RTSMViewController_tableView_section_alwaysBottom:
 			break;
 
 		case RTSMViewController_tableView_section_toggle:
 			[self setToggled:!self.toggled];
 			break;
+	}
+}
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	RTSMViewController_tableView_section tableView_section = [self.tableSectionManager sectionForIndexPathSection:section];
+	switch (tableView_section)
+	{
+		case RTSMViewController_tableView_section_red:
+		case RTSMViewController_tableView_section_green:
+		case RTSMViewController_tableView_section_blue:
+		case RTSMViewController_tableView_section_toggle:
 		case RTSMViewController_tableView_section_possiblyToggled:
+			return 0.0f;
+			break;
+			
+		case RTSMViewController_tableView_section_alwaysBottom:
+		{
+			CGFloat emptySpace = [self.tableView rtsm_emptySpaceFromSection:RTSMViewController_tableView_section__first
+																  toSection:RTSMViewController_tableView_section_alwaysBottom
+														tableSectionManager:self.tableSectionManager
+																 tableFrame:self.tableViewFrame];
+
+			CGFloat rowHeight = [self tableView:self.tableView
+						heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+
+			return emptySpace - rowHeight;
+		}
 			break;
 	}
+	
+	NSAssert(false, @"unhandled");
+	return 0.0f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	UIView* view = [UIView new];
+	[view setBackgroundColor:[UIColor clearColor]];
+	[view setUserInteractionEnabled:NO];
+	return view;
 }
 
 #pragma mark - Cell Background Color
@@ -181,6 +223,10 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 		case RTSMViewController_tableView_section_toggle:
 		case RTSMViewController_tableView_section_possiblyToggled:
 			return [UIColor whiteColor];
+			break;
+
+		case RTSMViewController_tableView_section_alwaysBottom:
+			return [UIColor lightGrayColor];
 			break;
 	}
 
@@ -205,6 +251,10 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 
 		case RTSMViewController_tableView_section_possiblyToggled:
 			return @"You've brought me to life!";
+			break;
+
+		case RTSMViewController_tableView_section_alwaysBottom:
+			return @"Always bottom";
 			break;
 	}
 

@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/RTSMTableSectionManager/TableSectionRangeManager/RTSMTableSectionRangeManager.h
+../../../../../Pod/Classes/RTSMTableSectionRangeManager/RTSMTableSectionRangeManager.h
