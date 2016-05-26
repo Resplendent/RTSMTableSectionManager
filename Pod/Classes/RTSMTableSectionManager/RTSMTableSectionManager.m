@@ -16,6 +16,7 @@
 
 @interface RTSMTableSectionManager ()
 
+#pragma mark - Appropriate Sections
 -(BOOL)firstAndLastSectionsAreAppropriate;
 
 @end
@@ -127,7 +128,7 @@
 			(section <= self.lastSection));
 }
 
-#pragma mark - firstAvailableSection
+#pragma mark - Available Sections
 -(NSInteger)firstAvailableSection
 {
 	NSInteger returnValue_error = NSNotFound;
@@ -144,6 +145,14 @@
 	}
 
 	return returnValue_error;
+}
+
+-(NSInteger)lastAvailableSection
+{
+	NSInteger numberOfSectionsAvailable = self.numberOfSectionsAvailable;
+	kRUConditionalReturn_ReturnValue(numberOfSectionsAvailable == 0, NO, NSNotFound);
+
+	return [self sectionForIndexPathSection:numberOfSectionsAvailable - 1];
 }
 
 @end

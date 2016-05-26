@@ -19,6 +19,8 @@
 
 
 typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
+	RTSMViewController_tableView_section_top_possiblyToggled,
+	RTSMViewController_tableView_section_top_toggle,
 	RTSMViewController_tableView_section_red,
 	RTSMViewController_tableView_section_green,
 	RTSMViewController_tableView_section_blue,
@@ -26,7 +28,7 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 	RTSMViewController_tableView_section_possiblyToggled,
 	RTSMViewController_tableView_section_alwaysBottom,
 
-	RTSMViewController_tableView_section__first		= RTSMViewController_tableView_section_red,
+	RTSMViewController_tableView_section__first		= RTSMViewController_tableView_section_top_possiblyToggled,
 	RTSMViewController_tableView_section__last		= RTSMViewController_tableView_section_alwaysBottom,
 };
 
@@ -36,10 +38,17 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 
 @interface RTSMViewController () <UITableViewDelegate,UITableViewDataSource,RTSMTableSectionManager_SectionDelegate>
 
+#pragma mark - tableSectionManager
 @property (nonatomic, readonly, nullable) RTSMTableSectionManager* tableSectionManager;
+-(void)tableSectionManager_validate;
 
+#pragma mark - top_toggled
+@property (nonatomic, assign) BOOL top_toggled;
+
+#pragma mark - toggled
 @property (nonatomic, assign) BOOL toggled;
 
+#pragma mark - tableView
 @property (nonatomic, readonly, nullable) UITableView* tableView;
 -(CGRect)tableViewFrame;
 
@@ -67,6 +76,8 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 																	lastSection:RTSMViewController_tableView_section__last];
 	[self.tableSectionManager setSectionDelegate:self];
 
+	[self tableSectionManager_validate];
+
 	_tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
 	[self.tableView setBackgroundColor:[UIColor clearColor]];
 	[self.tableView setDelegate:self];
@@ -92,6 +103,11 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 {
 	switch ((RTSMViewController_tableView_section)section)
 	{
+		case RTSMViewController_tableView_section_top_possiblyToggled:
+			return (self.top_toggled == TRUE);
+			break;
+
+		case RTSMViewController_tableView_section_top_toggle:
 		case RTSMViewController_tableView_section_red:
 		case RTSMViewController_tableView_section_green:
 		case RTSMViewController_tableView_section_blue:
@@ -99,7 +115,7 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 		case RTSMViewController_tableView_section_alwaysBottom:
 			return YES;
 			break;
-			
+
 		case RTSMViewController_tableView_section_possiblyToggled:
 			return (self.toggled == TRUE);
 			break;
@@ -150,11 +166,16 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 
 	switch (tableView_section)
 	{
+		case RTSMViewController_tableView_section_top_possiblyToggled:
 		case RTSMViewController_tableView_section_red:
 		case RTSMViewController_tableView_section_green:
 		case RTSMViewController_tableView_section_blue:
 		case RTSMViewController_tableView_section_possiblyToggled:
 		case RTSMViewController_tableView_section_alwaysBottom:
+			break;
+
+		case RTSMViewController_tableView_section_top_toggle:
+			[self setTop_toggled:(self.top_toggled == false)];
 			break;
 
 		case RTSMViewController_tableView_section_toggle:
@@ -168,6 +189,8 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 	RTSMViewController_tableView_section tableView_section = [self.tableSectionManager sectionForIndexPathSection:section];
 	switch (tableView_section)
 	{
+		case RTSMViewController_tableView_section_top_possiblyToggled:
+		case RTSMViewController_tableView_section_top_toggle:
 		case RTSMViewController_tableView_section_red:
 		case RTSMViewController_tableView_section_green:
 		case RTSMViewController_tableView_section_blue:
@@ -220,6 +243,8 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 			return [UIColor blueColor];
 			break;
 			
+		case RTSMViewController_tableView_section_top_possiblyToggled:
+		case RTSMViewController_tableView_section_top_toggle:
 		case RTSMViewController_tableView_section_toggle:
 		case RTSMViewController_tableView_section_possiblyToggled:
 			return [UIColor whiteColor];
@@ -239,6 +264,14 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 {
 	switch (tableViewSection)
 	{
+		case RTSMViewController_tableView_section_top_possiblyToggled:
+			return @"I am alive!";
+			break;
+			
+		case RTSMViewController_tableView_section_top_toggle:
+			return @"Tap to toggle the section above this one";
+			break;
+
 		case RTSMViewController_tableView_section_red:
 		case RTSMViewController_tableView_section_green:
 		case RTSMViewController_tableView_section_blue:
@@ -246,7 +279,7 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 			break;
 			
 		case RTSMViewController_tableView_section_toggle:
-			return @"Tap to toggle section below this one";
+			return @"Tap to toggle the section below this one";
 			break;
 
 		case RTSMViewController_tableView_section_possiblyToggled:
@@ -262,26 +295,77 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 	return nil;
 }
 
-#pragma mark - toggled
--(void)setToggled:(BOOL)toggled
+#pragma mark - top_toggled
+-(void)setTop_toggled:(BOOL)top_toggled
 {
-	kRUConditionalReturn(self.toggled == toggled, NO);
+	kRUConditionalReturn(self.top_toggled == top_toggled, NO);
 
-	NSInteger indexPathSection_old = (self.toggled ?
-									  [self.tableSectionManager indexPathSectionForSection:RTSMViewController_tableView_section_possiblyToggled] :
+	RTSMViewController_tableView_section const tableView_section = RTSMViewController_tableView_section_top_possiblyToggled;
+	NSInteger indexPathSection_old = (self.top_toggled ?
+									  [self.tableSectionManager indexPathSectionForSection:tableView_section] :
 									  NSNotFound);
-
-	_toggled = toggled;
-
-	if (self.toggled)
+	
+	_top_toggled = top_toggled;
+	
+	if (self.top_toggled)
 	{
-		[self.tableView insertSections:[NSIndexSet indexSetWithIndex:[self.tableSectionManager indexPathSectionForSection:RTSMViewController_tableView_section_possiblyToggled]]
+		[self.tableView insertSections:[NSIndexSet indexSetWithIndex:[self.tableSectionManager indexPathSectionForSection:tableView_section]]
 					  withRowAnimation:UITableViewRowAnimationAutomatic];
 	}
 	else
 	{
 		[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPathSection_old]
 					  withRowAnimation:UITableViewRowAnimationAutomatic];
+	}
+
+	[self tableSectionManager_validate];
+}
+
+#pragma mark - toggled
+-(void)setToggled:(BOOL)toggled
+{
+	kRUConditionalReturn(self.toggled == toggled, NO);
+
+	RTSMViewController_tableView_section const tableView_section = RTSMViewController_tableView_section_possiblyToggled;
+	NSInteger indexPathSection_old = (self.toggled ?
+									  [self.tableSectionManager indexPathSectionForSection:tableView_section] :
+									  NSNotFound);
+
+	_toggled = toggled;
+
+	if (self.toggled)
+	{
+		[self.tableView insertSections:[NSIndexSet indexSetWithIndex:[self.tableSectionManager indexPathSectionForSection:tableView_section]]
+					  withRowAnimation:UITableViewRowAnimationAutomatic];
+	}
+	else
+	{
+		[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPathSection_old]
+					  withRowAnimation:UITableViewRowAnimationAutomatic];
+	}
+}
+
+#pragma mark - tableSectionManager
+-(void)tableSectionManager_validate
+{
+	NSAssert(self.tableSectionManager.firstAvailableSection ==
+			 (self.top_toggled ?
+			  RTSMViewController_tableView_section_top_possiblyToggled :
+			  RTSMViewController_tableView_section_top_toggle), @"unhandled");
+
+	RTSMViewController_tableView_section firstAvailableSection = self.tableSectionManager.firstAvailableSection;
+	RTSMViewController_tableView_section lastAvailableSection = self.tableSectionManager.lastAvailableSection;
+
+	NSInteger indexPathSection = 0;
+	for (RTSMViewController_tableView_section section = firstAvailableSection;
+		 section <= lastAvailableSection;
+		 section++)
+	{
+		if ([self.tableSectionManager sectionDelegate_sectionIsAvailable:section])
+		{
+			NSAssert([self.tableSectionManager indexPathSectionForSection:section] == indexPathSection, @"section %li should match indexPathSection %li",section,indexPathSection);
+			indexPathSection++;
+		}
 	}
 }
 
