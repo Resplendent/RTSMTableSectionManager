@@ -20,17 +20,22 @@
 @property (nonatomic, assign) id<RTSMTableSectionManager_SectionDelegate> sectionDelegate;
 -(BOOL)sectionDelegate_sectionIsAvailable:(NSInteger)section;
 
+#pragma mark - Sections
 @property (nonatomic, assign) NSInteger firstSection;
 @property (nonatomic, assign) NSInteger lastSection;
 
+#pragma mark - Available Sections
 @property (nonatomic, readonly) NSInteger numberOfSectionsAvailable;
 
+#pragma mark - Convert Sections And Index Path Sections
 -(NSInteger)sectionForIndexPathSection:(NSInteger)indexPathSection;
 -(NSInteger)indexPathSectionForSection:(NSInteger)section;
 
+#pragma mark - Init
 -(instancetype)initWithFirstSection:(NSInteger)firstSection lastSection:(NSInteger)lastSection;
 
-#pragma mark - firstAvailableSection
+#pragma mark - Available Sections
 -(NSInteger)firstAvailableSection;
+-(NSInteger)lastAvailableSection;
 
 @end
