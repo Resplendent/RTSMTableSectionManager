@@ -55,8 +55,11 @@
 		 section_loop < section;
 		 section_loop++)
 	{
-		NSUInteger tableViewSectionLengthForType = [self tableSectionManager_sectionIsAvailable:section_loop];
-		sectionCount += tableViewSectionLengthForType;
+		if ([self tableSectionManager_sectionIsAvailable:section_loop])
+		{
+			NSUInteger tableViewSectionLengthForType = [self indexPathSectionLengthForSection:section_loop];
+			sectionCount += tableViewSectionLengthForType;
+		}
 	}
 	
 	return sectionCount;
@@ -79,14 +82,17 @@
 		 section_loop <= self.tableSectionManager.lastSection;
 		 section_loop++)
 	{
-		NSUInteger tableViewSectionLengthForType = [self indexPathSectionLengthForSection:section_loop];
-		NSUInteger sectionCount_new = sectionCount + tableViewSectionLengthForType;
-		if (sectionCount_new > indexPathSection)
+		if ([self tableSectionManager_sectionIsAvailable:section_loop])
 		{
-			return section_loop;
+			NSUInteger tableViewSectionLengthForType = [self indexPathSectionLengthForSection:section_loop];
+			NSUInteger sectionCount_new = sectionCount + tableViewSectionLengthForType;
+			if (sectionCount_new > indexPathSection)
+			{
+				return section_loop;
+			}
+			
+			sectionCount = sectionCount_new;
 		}
-		
-		sectionCount = sectionCount_new;
 	}
 	
 	NSAssert(false, @"unhandled");
@@ -100,8 +106,11 @@
 		 section_loop <= self.tableSectionManager.lastSection;
 		 section_loop++)
 	{
-		NSUInteger tableViewSectionLengthForType = [self indexPathSectionLengthForSection:section_loop];
-		sectionCount += tableViewSectionLengthForType;
+		if ([self tableSectionManager_sectionIsAvailable:section_loop])
+		{
+			NSUInteger tableViewSectionLengthForType = [self indexPathSectionLengthForSection:section_loop];
+			sectionCount += tableViewSectionLengthForType;
+		}
 	}
 	
 	return sectionCount;

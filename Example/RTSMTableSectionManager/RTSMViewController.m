@@ -7,6 +7,7 @@
 //
 
 #import "RTSMViewController.h"
+#import "RTSMTableSectionRangeManagerViewController.h"
 
 #import <RTSMTableSectionManager/RTSMTableSectionManager.h>
 #import <RTSMTableSectionManager/UITableView+RTSMEmptySpace.h>
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 	RTSMViewController_tableView_section_blue,
 	RTSMViewController_tableView_section_toggle,
 	RTSMViewController_tableView_section_possiblyToggled,
+	RTSMViewController_tableView_section_RTSMTableSectionRangeManagerViewController,
 	RTSMViewController_tableView_section_alwaysBottom,
 
 	RTSMViewController_tableView_section__first		= RTSMViewController_tableView_section_top_possiblyToggled,
@@ -112,6 +114,7 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 		case RTSMViewController_tableView_section_green:
 		case RTSMViewController_tableView_section_blue:
 		case RTSMViewController_tableView_section_toggle:
+		case RTSMViewController_tableView_section_RTSMTableSectionRangeManagerViewController:
 		case RTSMViewController_tableView_section_alwaysBottom:
 			return YES;
 			break;
@@ -181,6 +184,10 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 		case RTSMViewController_tableView_section_toggle:
 			[self setToggled:!self.toggled];
 			break;
+
+		case RTSMViewController_tableView_section_RTSMTableSectionRangeManagerViewController:
+			[self.navigationController pushViewController:[RTSMTableSectionRangeManagerViewController new] animated:YES];
+			break;
 	}
 }
 
@@ -196,6 +203,7 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 		case RTSMViewController_tableView_section_blue:
 		case RTSMViewController_tableView_section_toggle:
 		case RTSMViewController_tableView_section_possiblyToggled:
+		case RTSMViewController_tableView_section_RTSMTableSectionRangeManagerViewController:
 			return 0.0f;
 			break;
 			
@@ -250,6 +258,10 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 			return [UIColor whiteColor];
 			break;
 
+		case RTSMViewController_tableView_section_RTSMTableSectionRangeManagerViewController:
+			return [UIColor grayColor];
+			break;
+
 		case RTSMViewController_tableView_section_alwaysBottom:
 			return [UIColor lightGrayColor];
 			break;
@@ -284,6 +296,10 @@ typedef NS_ENUM(NSInteger, RTSMViewController_tableView_section) {
 
 		case RTSMViewController_tableView_section_possiblyToggled:
 			return @"You've brought me to life!";
+			break;
+
+		case RTSMViewController_tableView_section_RTSMTableSectionRangeManagerViewController:
+			return @"Push for RTSMTableSectionRangeManagerViewController";
 			break;
 
 		case RTSMViewController_tableView_section_alwaysBottom:
