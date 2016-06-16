@@ -20,6 +20,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		63569C1F3DC2412EB9BEAE61 /* Pods_RTSMTableSectionManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF93BB757B353483F444C2C3 /* Pods_RTSMTableSectionManager_Example.framework */; };
 		7E310719AADF57EA89959B2D /* Pods_RTSMTableSectionManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7557197F7FAE9870C79C460A /* Pods_RTSMTableSectionManager_Tests.framework */; };
+		D72E0EC31D131BD600EE151F /* RTSMTableSectionRangeManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E0EC21D131BD600EE151F /* RTSMTableSectionRangeManagerViewController.m */; };
 		D7A8C89E1C56DAE1007480B9 /* RTSMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8C89B1C56DAE1007480B9 /* RTSMAppDelegate.m */; };
 		D7A8C8A21C56DB0E007480B9 /* RTSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8C8A11C56DB0E007480B9 /* RTSMViewController.m */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,8 @@
 		7C9ED8329E0EE786DA4353D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A4CF87B584FB593BD45D00DF /* RTSMTableSectionManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RTSMTableSectionManager.podspec; path = ../RTSMTableSectionManager.podspec; sourceTree = "<group>"; };
 		BF93BB757B353483F444C2C3 /* Pods_RTSMTableSectionManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTSMTableSectionManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72E0EC11D131BD600EE151F /* RTSMTableSectionRangeManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSMTableSectionRangeManagerViewController.h; sourceTree = "<group>"; };
+		D72E0EC21D131BD600EE151F /* RTSMTableSectionRangeManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSMTableSectionRangeManagerViewController.m; sourceTree = "<group>"; };
 		D7A8C89A1C56DAE1007480B9 /* RTSMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSMAppDelegate.h; sourceTree = "<group>"; };
 		D7A8C89B1C56DAE1007480B9 /* RTSMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSMAppDelegate.m; sourceTree = "<group>"; };
 		D7A8C8A01C56DB0E007480B9 /* RTSMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSMViewController.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				D7A8C89A1C56DAE1007480B9 /* RTSMAppDelegate.h */,
 				D7A8C89B1C56DAE1007480B9 /* RTSMAppDelegate.m */,
+				D72E0EC11D131BD600EE151F /* RTSMTableSectionRangeManagerViewController.h */,
+				D72E0EC21D131BD600EE151F /* RTSMTableSectionRangeManagerViewController.m */,
 				D7A8C8A01C56DB0E007480B9 /* RTSMViewController.h */,
 				D7A8C8A11C56DB0E007480B9 /* RTSMViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -387,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A8C89E1C56DAE1007480B9 /* RTSMAppDelegate.m in Sources */,
+				D72E0EC31D131BD600EE151F /* RTSMTableSectionRangeManagerViewController.m in Sources */,
 				D7A8C8A21C56DB0E007480B9 /* RTSMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
