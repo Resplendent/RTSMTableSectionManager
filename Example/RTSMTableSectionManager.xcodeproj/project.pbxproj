@@ -22,7 +22,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		60249A7ECD2CE426951CB545 /* Pods_RTSMTableSectionManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4650F001DAA9CFBF405D11 /* Pods_RTSMTableSectionManager_Example.framework */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D783A21C1D80B887006104D4 /* RTSMTableSectionRangeManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D783A21B1D80B887006104D4 /* RTSMTableSectionRangeManagerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +62,10 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		7D68FBB730285A6983A80C87 /* RTSMTableSectionManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RTSMTableSectionManager.podspec; path = ../RTSMTableSectionManager.podspec; sourceTree = "<group>"; };
 		7F4650F001DAA9CFBF405D11 /* Pods_RTSMTableSectionManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTSMTableSectionManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B6734CA0506B704D1C24EA6E /* Pods-RTSMTableSectionManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTSMTableSectionManager_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RTSMTableSectionManager_Example/Pods-RTSMTableSectionManager_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C52E292B161CF7EB5898BD79 /* Pods_RTSMTableSectionManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTSMTableSectionManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D783A21A1D80B887006104D4 /* RTSMTableSectionRangeManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSMTableSectionRangeManagerViewController.h; sourceTree = "<group>"; };
+		D783A21B1D80B887006104D4 /* RTSMTableSectionRangeManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSMTableSectionRangeManagerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +144,8 @@
 			children = (
 				6003F59C195388D20070C39A /* RTSMAppDelegate.h */,
 				6003F59D195388D20070C39A /* RTSMAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				D783A21A1D80B887006104D4 /* RTSMTableSectionRangeManagerViewController.h */,
+				D783A21B1D80B887006104D4 /* RTSMTableSectionRangeManagerViewController.m */,
 				6003F5A5195388D20070C39A /* RTSMViewController.h */,
 				6003F5A6195388D20070C39A /* RTSMViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -276,7 +278,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -391,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* RTSMAppDelegate.m in Sources */,
+				D783A21C1D80B887006104D4 /* RTSMTableSectionRangeManagerViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* RTSMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
