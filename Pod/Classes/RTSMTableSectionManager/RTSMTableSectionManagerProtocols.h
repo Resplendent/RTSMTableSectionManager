@@ -20,6 +20,6 @@
 
 @protocol RTSMTableSectionManager_SectionDelegate <NSObject>
 
--(BOOL)tableSectionManager:(RTSMTableSectionManager*)tableSectionManager sectionIsAvailable:(NSInteger)section;
+-(BOOL)tableSectionManager:(nonnull RTSMTableSectionManager*)tableSectionManager sectionIsAvailable:(NSInteger)section;
 
 @end
