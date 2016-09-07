@@ -2,33 +2,18 @@
 //  RTSMAppDelegate.m
 //  RTSMTableSectionManager
 //
-//  Created by Benjamin Maer on 01/25/2016.
+//  Created by Benjamin Maer on 09/07/2016.
 //  Copyright (c) 2016 Benjamin Maer. All rights reserved.
 //
 
 #import "RTSMAppDelegate.h"
-#import "RTSMViewController.h"
-
-
-
-
 
 @implementation RTSMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[self setWindow:[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]];
-	[self.window setBackgroundColor:[UIColor greenColor]];
-
-	RTSMViewController* viewController = [RTSMViewController new];
-	[viewController setTitle:@"Table Section Manager"];
-	UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
-
-	[self.window setRootViewController:navigationController];
-	
-	[self.window makeKeyAndVisible];
-
-	return YES;
+    // Override point for customization after application launch.
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

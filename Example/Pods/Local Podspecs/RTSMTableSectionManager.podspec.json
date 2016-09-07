@@ -1,6 +1,6 @@
 {
   "name": "RTSMTableSectionManager",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "summary": "A tool to help manage a relationship between enum types and UITableView sections.",
   "homepage": "https://github.com/Resplendent/RTSMTableSectionManager",
   "license": "MIT",
@@ -9,18 +9,13 @@
   },
   "source": {
     "git": "https://github.com/Resplendent/RTSMTableSectionManager.git",
-    "tag": "v0.1.4"
+    "tag": "v0.1.6"
   },
   "platforms": {
     "ios": "7.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "RTSMTableSectionManager": [
-      "Pod/Assets/*.png"
-    ]
-  },
+  "source_files": "RTSMTableSectionManager/Classes/**/*",
   "dependencies": {
     "ResplendentUtilities": [
       "~> 0.4.9"
