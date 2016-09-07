@@ -2,7 +2,7 @@
 //  main.m
 //  RTSMTableSectionManager
 //
-//  Created by Benjamin Maer on 01/25/2016.
+//  Created by Benjamin Maer on 09/07/2016.
 //  Copyright (c) 2016 Benjamin Maer. All rights reserved.
 //
 

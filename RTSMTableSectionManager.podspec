@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RTSMTableSectionManager"
-  s.version          = "0.1.6"
+  s.version          = "0.1.7"
   s.summary          = "A tool to help manage a relationship between enum types and UITableView sections."
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = 'RTSMTableSectionManager/Classes/**/*'
 #  s.resource_bundles = {
 #    'RTSMTableSectionManager' => ['Pod/Assets/*.png']
 #  }
