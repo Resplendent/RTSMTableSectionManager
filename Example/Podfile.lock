@@ -1,6 +1,6 @@
 PODS:
   - ResplendentUtilities (0.5.0)
-  - RTSMTableSectionManager (0.1.7):
+  - RTSMTableSectionManager (0.1.8):
     - ResplendentUtilities (~> 0.5.0)
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ResplendentUtilities: df8bb038d91568f9e82ee88ba5796d5d68014cdf
-  RTSMTableSectionManager: 2313c7f2ca8eec67710e686b07ae1bf4120513e1
+  RTSMTableSectionManager: 0da0f9e521a00501edabcd72be8b045c9d920111
 
 PODFILE CHECKSUM: 1e4f8d49ba0c458b7ffd32b2e8446196f4562b20
 
