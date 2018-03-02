@@ -18,7 +18,7 @@
   "source_files": "RTSMTableSectionManager/Classes/**/*",
   "dependencies": {
     "ResplendentUtilities": [
-      "~> 0.5.2"
+      "~> 0.5.4"
     ]
   }
 }
