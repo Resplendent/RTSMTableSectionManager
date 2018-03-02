@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RTSMTableSectionManager"
-  s.version          = "0.1.9"
+  s.version          = "0.1.10"
   s.summary          = "A tool to help manage a relationship between enum types and UITableView sections."
 
 # This description is used to generate tags and improve search results.
@@ -36,5 +36,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'ResplendentUtilities', '~> 0.5.2'
+  s.dependency 'ResplendentUtilities', '~> 0.5.4'
 end
